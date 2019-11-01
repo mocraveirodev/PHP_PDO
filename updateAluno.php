@@ -3,10 +3,25 @@
 
     $db = conectarBanco();
 
-    $query = $db->query('SELECT * FROM cursos');
+    // $query = $db->query('SELECT * FROM cursos');
 
-    $cursos = $query->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($cursos);
+    // $cursos = $query->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($cursos);
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }else{
+        echo "Você deve passar um ID!";
+        exit;
+    }
+
+    $query = $db->query('SELECT * FROM alunos WHERE id=?');
+
+    $aluno = $query->execute([$id]);
+
+    $aluno = $aluno->fetch(PDO::FETCH_ASSOC);
+    var_dump($aluno);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

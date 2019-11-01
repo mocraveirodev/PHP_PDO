@@ -1,9 +1,7 @@
 <?php
-    $host = 'mysql:host=localhost;dbname=escola;port=3306';
-    $user = 'root';
-    $password = '';
+    include_once("config/conexao.php");
 
-    $db = new PDO($host,$user,$password);
+    $db = conectarBanco();
 
     $query = $db->query('SELECT * FROM alunos');
 
