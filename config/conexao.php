@@ -10,6 +10,6 @@
         $user = 'root';
         $password = '';
 
-        $db = new PDO($host,$user,$password);
+        return $db = new PDO($host,$user,$password);
     }
 ?>
